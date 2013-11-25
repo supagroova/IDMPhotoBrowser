@@ -369,7 +369,7 @@
         /*CGAffineTransform zoom = CGAffineTransformScale(CGAffineTransformIdentity, _backgroundScaleFactor, _backgroundScaleFactor);
         [_applicationRootViewController.view setTransform:zoom];*/
         
-        fadeView.backgroundColor = [UIColor blackColor];
+        fadeView.backgroundColor = _senderViewForAnimation.backgroundColor;
 
         float scaleFactor =  (imageFromView ? imageFromView.size.width : screenWidth) / screenWidth;
         
@@ -395,7 +395,7 @@
     float scaleFactor = imageFromView.size.width / screenWidth;
     
     UIView *fadeView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, screenHeight)];
-    fadeView.backgroundColor = [UIColor blackColor];
+    fadeView.backgroundColor = _senderViewForAnimation.backgroundColor;
     fadeView.alpha = fadeAlpha;
     [_applicationWindow addSubview:fadeView];
     
