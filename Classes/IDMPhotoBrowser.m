@@ -9,7 +9,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "IDMPhotoBrowser.h"
 #import "IDMZoomingScrollView.h"
-#import "SVProgressHUD.h"
+#import "ProgressHUD.h"
 
 #define kUSE_CURRENT_CONTEXT_PRESENTATION_STYLE 1
 
@@ -1326,21 +1326,21 @@
     [self hideControlsAfterDelay]; // Continue as normal...
 }
 
-#pragma mark - SVProgressHUD
+#pragma mark - ProgressHUD
 
 - (void)showProgressHUDWithMessage:(NSString *)message {
-    [SVProgressHUD showWithStatus:message];
+    [ProgressHUD show:message];
 }
 
 - (void)hideProgressHUD:(BOOL)animated {
-    [SVProgressHUD dismiss];
+    [ProgressHUD dismiss];
 }
 
 - (void)showProgressHUDCompleteMessage:(NSString *)message {
     if (message) {
-        [SVProgressHUD showSuccessWithStatus:message];
+        [ProgressHUD showSuccess:message];
     } else {
-        [SVProgressHUD dismiss];
+        [ProgressHUD dismiss];
     }
 }
 

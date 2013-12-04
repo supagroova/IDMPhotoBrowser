@@ -11,8 +11,6 @@
 #import "IDMTapDetectingImageView.h"
 #import "IDMTapDetectingView.h"
 
-#import "DACircularProgressView.h"
-
 @class IDMPhotoBrowser, IDMPhoto, IDMCaptionView;
 
 @interface IDMZoomingScrollView : UIScrollView <UIScrollViewDelegate, IDMTapDetectingImageViewDelegate, IDMTapDetectingViewDelegate> {
@@ -25,7 +23,7 @@
     
 	IDMTapDetectingView *_tapView; // for background taps
     
-    DACircularProgressView *_progressView;
+    UIActivityIndicatorView *_progressView;
 }
 
 @property (nonatomic, strong) IDMTapDetectingImageView *photoImageView;
