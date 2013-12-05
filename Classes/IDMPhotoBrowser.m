@@ -533,19 +533,13 @@
                       barMetrics:UIBarMetricsDefault];
     
     // Close Button
-    _doneButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _doneButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [_doneButton setFrame:[self frameForDoneButtonAtOrientation:currentOrientation]];
-    [_doneButton setAlpha:1.0f];
     [_doneButton addTarget:self action:@selector(doneButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     
     if(!_doneButtonImage) {
-        [_doneButton setTitleColor:[UIColor colorWithWhite:0.9 alpha:0.9] forState:UIControlStateNormal|UIControlStateHighlighted];
+        _doneButton.titleLabel.font = [UIFont boldSystemFontOfSize:_doneButton.titleLabel.font.pointSize];
         [_doneButton setTitle:NSLocalizedString(@"Done", nil) forState:UIControlStateNormal];
-        [_doneButton.titleLabel setFont:[UIFont boldSystemFontOfSize:11.0f]];
-        [_doneButton setBackgroundColor:[UIColor colorWithWhite:0.1 alpha:0.5]];
-        _doneButton.layer.cornerRadius = 3.0f;
-        _doneButton.layer.borderColor = [UIColor colorWithWhite:0.9 alpha:0.9].CGColor;
-        _doneButton.layer.borderWidth = 1.0f;
     }
     else {
         [_doneButton setBackgroundImage:_doneButtonImage forState:UIControlStateNormal];
@@ -648,12 +642,12 @@
 
 #pragma mark - Status Bar
 
-/*- (BOOL)prefersStatusBarHidden {
-    return YES;
-}*/
+//- (BOOL)prefersStatusBarHidden {
+//    return NO;
+//}
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
-    return _useWhiteBackgroundColor ? 1 : 0;
+    return _useWhiteBackgroundColor ? 0 : 1;
 }
 
 /*- (UIStatusBarAnimation)preferredStatusBarUpdateAnimation {
@@ -1102,7 +1096,7 @@
     
     // if ([self isLandscape:orientation]) screenWidth = screenBound.size.height;
     
-    return CGRectMake(screenWidth - 75, 30, 55, 26);
+    return CGRectMake(screenWidth - 60, 30, 55, 26);
 }
 
 - (CGRect)frameForCaptionView:(IDMCaptionView *)captionView atIndex:(NSUInteger)index {
